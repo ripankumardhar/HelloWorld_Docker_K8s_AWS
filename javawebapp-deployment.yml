@@ -3,20 +3,20 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: helloworldproject
+    name: javawebapp
   name: java-controller
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: helloworldproject
+        name: javawebapp
     spec:
       containers:
       - image: ridh19/helloworldproject
-        name: helloworldproject
+        name: javawebapp
         ports:
-        - name: helloworldproject
+        - name: javawebapp
           containerPort: 8080  
 ---
 # Node Port Service
@@ -24,12 +24,12 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: helloworldproject
-  name: helloworldproject
+    name: javawebapp
+  name: javawebapp
 spec:
   type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    name: helloworldproject
+    name: javawebapp
