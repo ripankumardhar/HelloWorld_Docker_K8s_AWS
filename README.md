@@ -46,8 +46,6 @@ node{
     }
     
     stage('Push Docker Image'){
-        
-        //sh('docker -u $EXAMPLE_CREDS_USR:$EXAMPLE_CREDS_PSW https://hub.docker.com')
         withCredentials([string(credentialsId: 'D_H_C', variable: 'D_H_C')]) {
           sh 'docker login -u ridh19 -p ${D_H_C}'
         }
