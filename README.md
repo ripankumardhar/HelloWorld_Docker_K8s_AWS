@@ -1,5 +1,31 @@
 # HelloWorld_Docker_K8s_AWS
 
+## Pre - requisites
+
+### Install and set up Jenkins
+- Install Java
+- Install and set up Jenkins from .war file. Add secret key for first time use
+
+### Set up Docker in Jenkins Server
+- Install Docker
+- Add Jenkins User to Docker Group
+- Restart Jenkins
+
+### Set Up Kubernetes Cluster
+- Create Ubantu machines in AWS EC2 instances - Master and Worker machines
+- Install Docker, Kubectl
+- Start Kubelet
+- In Master node copy config file in $HOME/kube/config
+- In worker nodes copy kubeadm join token and execute  worker nodes to join into cluster
+
+### Set Up Jenkins server to deploy zpplications into kubernetes cluster using Kubernetes Continues Deploy Plugin
+- Add  Kubernetes Continues Deploy Plugin to Jenkins
+- Add Kube config details in Jenkins Credentials
+- Use KubernetesDeploy in pipeline script
+
+### Pipeline Script in Jenkins
+
+```bash
 
 node{
     
@@ -33,8 +59,9 @@ node{
        kubernetesDeploy(
          configs: 'javawebapp-deployment.yml', 
          kubeconfigId: 'k8_cluster_config',
-         //enableConfigSubstitution: true
+         enableConfigSubstitution: true
         )
      }
-     
-}
+   }
+
+```
