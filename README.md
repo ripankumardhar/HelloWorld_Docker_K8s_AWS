@@ -18,7 +18,7 @@
 - In Master node copy config file in $HOME/kube/config
 - In worker nodes copy kubeadm join token and execute  worker nodes to join into cluster
 
-### Set Up Jenkins server to deploy zpplications into kubernetes cluster using Kubernetes Continues Deploy Plugin
+### Set Up Jenkins server to deploy applications into kubernetes cluster using Kubernetes Continues Deploy Plugin
 - Add  Kubernetes Continues Deploy Plugin to Jenkins
 - Add Kube config details in Jenkins Credentials
 - Use KubernetesDeploy in pipeline script
