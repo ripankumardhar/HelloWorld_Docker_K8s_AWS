@@ -1,14 +1,31 @@
+---
 apiVersion: v1
-kind: ReplicationController
+kind: Service
 metadata:
   labels:
     name: helloworldproject
+    app: helloworldproject
+
+spec:
+  type: Nodeport
+  selector: 
+    app: helloworldproject
+    ports:
+    - protocol: TCP
+      port: 8080
+      name: http
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: helloworldproject
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: helloworldproject
+        app: helloworldproject
+    
     spec:
       containers:
       - image: ridh19/helloworldproject
