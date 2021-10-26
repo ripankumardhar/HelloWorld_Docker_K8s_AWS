@@ -31,5 +31,5 @@ spec:
       - image: ridh19/helloworldproject
         name: helloworldproject
         ports:
-        - name: helloworldproject
+        - name: 
           containerPort: 8080  
